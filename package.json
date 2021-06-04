@@ -7,11 +7,15 @@
     "preview-https": "serve dist"
   },
   "dependencies": {
+    "@apollo/client": "^3.3.19",
+    "@vue/apollo-composable": "^4.0.0-alpha.12",
     "@vueuse/core": "^4.11.2",
     "@vueuse/head": "^0.5.1",
+    "graphql": "^15.5.0",
+    "graphql-tag": "^2.12.4",
     "nprogress": "^0.2.0",
     "prism-theme-vars": "^0.2.2",
-    "vue": "^3.0.11",
+    "vue": "^3.1.0-beta.7",
     "vue-i18n": "^9.1.6",
     "vue-router": "^4.0.8"
   },

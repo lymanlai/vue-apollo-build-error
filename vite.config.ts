@@ -15,16 +15,17 @@ export default defineConfig({
   resolve: {
     alias: {
       '~/': `${path.resolve(__dirname, 'src')}/`,
-    },
+      '@vue/apollo-composable': '@vue/apollo-composable/dist/index.js'
+    }
   },
   plugins: [
     Vue({
-      include: [/\.vue$/, /\.md$/],
+      include: [/\.vue$/, /\.md$/]
     }),
 
     // https://github.com/hannoeru/vite-plugin-pages
     Pages({
-      extensions: ['vue', 'md'],
+      extensions: ['vue', 'md']
     }),
 
     // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
@@ -34,10 +35,10 @@ export default defineConfig({
     Markdown({
       wrapperClasses: 'prose prose-sm m-auto text-left',
       headEnabled: true,
-      markdownItSetup(md) {
+      markdownItSetup (md) {
         // https://prismjs.com/
         md.use(Prism)
-      },
+      }
     }),
 
     // https://github.com/antfu/vite-plugin-components
@@ -54,10 +55,10 @@ export default defineConfig({
       customComponentResolvers: [
         // https://github.com/antfu/vite-plugin-icons
         ViteIconsResolver({
-          componentPrefix: '',
+          componentPrefix: ''
           // enabledCollections: ['carbon']
-        }),
-      ],
+        })
+      ]
     }),
 
     // https://github.com/antfu/vite-plugin-icons
@@ -65,7 +66,7 @@ export default defineConfig({
 
     // https://github.com/antfu/vite-plugin-windicss
     WindiCSS({
-      safelist: 'prose prose-sm m-auto text-left',
+      safelist: 'prose prose-sm m-auto text-left'
     }),
 
     // https://github.com/antfu/vite-plugin-pwa
@@ -79,42 +80,36 @@ export default defineConfig({
           {
             src: '/pwa-192x192.png',
             sizes: '192x192',
-            type: 'image/png',
+            type: 'image/png'
+          },
+          {
+            src: '/pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png'
           },
           {
             src: '/pwa-512x512.png',
             sizes: '512x512',
             type: 'image/png',
-          },
-          {
-            src: '/pwa-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
-            purpose: 'any maskable',
-          },
-        ],
-      },
+            purpose: 'any maskable'
+          }
+        ]
+      }
     }),
 
     // https://github.com/intlify/vite-plugin-vue-i18n
     VueI18n({
-      include: [path.resolve(__dirname, 'locales/**')],
-    }),
+      include: [path.resolve(__dirname, 'locales/**')]
+    })
   ],
   // https://github.com/antfu/vite-ssg
   ssgOptions: {
     script: 'async',
-    formatting: 'minify',
+    formatting: 'minify'
   },
 
   optimizeDeps: {
-    include: [
-      'vue',
-      'vue-router',
-      '@vueuse/core',
-    ],
-    exclude: [
-      'vue-demi',
-    ],
-  },
+    include: ['vue', 'vue-router', '@vueuse/core'],
+    exclude: ['vue-demi']
+  }
 })
